@@ -1,0 +1,22 @@
+{
+  "name": "bin-customer-service",
+  "version": "1.0.0",
+  "description": "The Best In Node Customer Service",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CED-DART/bin-customer-service.git"
+  },
+  "author": "CED - Centro de Estudos Dart",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/CED-DART/bin-customer-service/issues"
+  },
+  "homepage": "https://github.com/CED-DART/bin-customer-service#readme",
+  "dependencies": {
+    "express": "^4.15.2"
+  }
+}
