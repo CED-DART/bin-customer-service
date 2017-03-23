@@ -2,10 +2,19 @@
   "name": "bin-customer-service",
   "version": "1.0.0",
   "description": "The Best In Node Customer Service",
-  "main": "main.js",
+  "main": "index.js",
   "scripts": {
+    "start": "node index.js",
+    "start-dev": "nodemon index.js",
+    "transpiler": "babel . --ignore node_modules,test --out-dir dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "keywords": [
+    "node",
+    "express",
+    "babel",
+    "es6"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/CED-DART/bin-customer-service.git"
@@ -23,7 +32,7 @@
   "devDependencies": {
     "babel-cli": "^6.24.0",
     "babel-core": "^6.24.0",
-    "babel-loader": "^6.4.1",
-    "babel-register": "^6.24.0"
+    "babel-preset-latest": "^6.24.0",
+    "nodemon": "^1.11.0"
   }
 }
