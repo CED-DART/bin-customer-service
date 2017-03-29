@@ -7,6 +7,27 @@
     <title>Document</title>
 </head>
 <body>
-    page 1
+    
+<a href="/create"> Create </a>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Actions</th>
+    </tr>
+<% for(var i=0; i < data.length; i++) { %>
+   <tr>
+     <td><%= data[i].id %></td>
+     <td><%= data[i].title %></td>
+     <td>
+        <a href="/view/<%= data[i].id %>"> View </a>
+        <a href="/edit/<%= data[i].id %>"> Edit </a>
+        <a href="/delete/<%= data[i].id %>"> Delete </a>        
+     </td>
+     </td>
+   </tr>
+<% } %>
+</table>
+
 </body>
 </html>

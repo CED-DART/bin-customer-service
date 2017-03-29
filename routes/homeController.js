@@ -3,7 +3,7 @@ import data from '../data.json'
 const router = express.Router();
 
 router.get("/", (req, res) => {
-    res.render('pages/index',data);
+    res.render('pages/index', {data: data});
 });
 
 router.get("/create", (req, res) => {
@@ -30,8 +30,11 @@ router.delete("/delete", (req, res) => {
     res.send("DELETE id");
 });
 
-router.get("view/:id", (req, res) => {
-    res.send("VIEW");
+router.get("/view/:id", (req, res) => {
+    
+    let id = req.params.id;
+    
+    res.send("VIEW" + id);
 });
 
 export default router;
