@@ -1,5 +1,6 @@
 import express from 'express';
 import data from '../data.json'
+
 const router = express.Router();
 
 router.get("/", (req, res) => {
@@ -7,11 +8,13 @@ router.get("/", (req, res) => {
 });
 
 router.get("/create", (req, res) => {
-    res.send("create");
+    res.render("pages/create");
 });
 
 router.post("/create", (req, res) => {
-    res.send(201);
+    console.log(req.body);
+    
+    res.sendStatus(201);
 });
 
 router.get("/edit/:id", (req, res) => {

@@ -1,10 +1,13 @@
 import express from 'express';
 import homeController from './routes/homeController';
+import bodyParser from 'body-parser';
 
 const app = express();
 const portNumber = 3000;
 
 app.set('view engine', 'ejs');
+app.use(bodyParser.json()); // support json encoded bodies
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use("/", homeController);
 
