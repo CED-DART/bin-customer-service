@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/edit" method="PUT">
+        <label>Title</label>
+        <input id="title" name="title" type="text" value="<%= data.title %>"/>
+        <br/>
+        <label>Company</label>
+        <input name="company" type="text" value="<%= data.company %>"/>
+        <br/>
+        <label>Description</label>          
+        <textarea name="description" rows="4" cols="40"><%= data.description %></textarea>
+        <br/>
+        <label>Resolved</label>
+        <input name="resolved" type="checkbox" <%= data.resolved ? "checked" :""  %> />
+        <br/>
+        <label>PromiseSolutionDate</label>
+        <input name="promiseSolutionDate" type="date" value="<%= data.promiseSolutionDate %>"/>
+        <br/>
+        <input type="submit" name="teste" value="Save" />   
+    </form>
+</body>
+</html>
