@@ -7,24 +7,23 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="/edit" method="POST">
+    <form action="/delete" method="POST">
         <input type="hidden" name="id" value="<%= data.id %>" />
         <label>Title</label>
-        <input id="title" name="title" type="text" value="<%= data.title %>"/>
+        <input id="title" name="title" type="text" value="<%= data.title %>" readonly />
         <br/>
         <label>Company</label>
-        <input name="company" type="text" value="<%= data.company %>"/>
+        <input name="company" type="text" value="<%= data.company %>" readonly/>
         <br/>
         <label>Description</label>          
-        <textarea name="description" rows="4" cols="40"><%= data.description %></textarea>
+        <textarea name="description" rows="4" cols="40" readonly><%= data.description %></textarea>
         <br/>
         <label>Resolved</label>
-        <input name="resolved" type="checkbox" <%= data.resolved ? "checked" :""  %> />
+        <input name="resolved" type="checkbox" readonly <%= data.resolved ? "checked" :""  %> />
         <br/>
         <label>PromiseSolutionDate</label>
-        <input name="promiseSolutionDate" type="date" value="<%= data.promiseSolutionDate %>"/>
-        <br/>
-        <input type="submit" name="teste" value="Save" />   
+        <input name="promiseSolutionDate" type="date" value="<%= data.promiseSolutionDate %>" readonly/>
+        <br/>  
     </form>
 </body>
 </html>

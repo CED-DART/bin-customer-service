@@ -14,7 +14,6 @@ router.get("/create", (req, res) => {
 });
 
 router.post("/create", (req, res) => {
-    // var jsonDatabase = fs.createReadStream('data.json');
 
     let nextId = 1;
     data.map((row, index) => {
@@ -42,7 +41,7 @@ router.post("/create", (req, res) => {
 });
 
 router.get("/edit/:id", (req, res) => {
-    console.log(req.params.id);
+
     let model = new customerService();
     data.map((row, index) => {
         let id = Number.parseInt(row.id);
@@ -57,23 +56,55 @@ router.get("/edit/:id", (req, res) => {
     res.render('pages/edit', { data: model });
 });
 
-router.put("/edit", (req, res) => {
-    res.send("EDIT PUT");
+router.post("/edit", (req, res) => {
+    
+    let newData = data.find((data) => {
+        return (data.id == req.body.id);
+     });
+
+    newData.title = req.body.title;
+    newData.company = req.body.company;
+    newData.description = req.body.description;
+    newData.resolved = req.body.resolved ? true : false;
+    newData.promiseSolutionDate = req.body.promiseSolutionDate;
+
+    data.map((row, index) => {
+        if (row.id == req.body.id)
+            row = newData;
+    });
+
+    fs.writeFile('data.json', JSON.stringify(data), (error) => {
+    });
+    
+    res.redirect("/");
 });
 
 router.get("/delete/:id", (req, res) => {
-    res.send("DELETE");
+    let dataToDelete = data.find((data) => {
+        return (data.id == req.params.id);
+     });
+
+     res.render('pages/delete', { 'data': dataToDelete});
 });
 
-router.delete("/delete", (req, res) => {
-    res.send("DELETE id");
+router.post("/delete", (req, res) => {
+    let indexToDelete = data.findIndex((data) => {
+        return (data.id == req.body.id);
+     });
+
+     data.splice(indexToDelete, 1);
+
+     fs.writeFile('data.json', JSON.stringify(data));
+
+     res.redirect("/");
 });
 
 router.get("/view/:id", (req, res) => {
+    let dataToView = data.find((data) => {
+        return (data.id == req.params.id);
+     });
 
-    let id = req.params.id;
-
-    res.send("VIEW" + id);
+     res.render('pages/view', { 'data': dataToView});
 });
 
 export default router;
